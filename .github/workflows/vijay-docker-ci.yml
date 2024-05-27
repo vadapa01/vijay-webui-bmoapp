@@ -35,7 +35,7 @@ jobs:
           docker-compose ps
 
       - name: Health-check
-        test: curl --fail http://localhost:1235/health.html || exit 1
+        run: curl --fail http://localhost:1235/health.html || exit 1
         interval: 60s       
         retries: 5
         start_period: 20s
