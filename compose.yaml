@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  vijay-ui-app:
+    image: vijay-webui:version4
+    build: . 
+    container_name: vijay1
+    ports:
+      - 1235:80
