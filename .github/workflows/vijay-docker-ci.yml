@@ -24,3 +24,12 @@ jobs:
 
       - name: verify github code
         run: ls -a      
+
+      - name: use docker-compose
+        run: |
+          docker-compose down
+          sleep 2
+          docker-compose ps
+          docker-compose up -d
+
+            
