@@ -38,3 +38,10 @@ jobs:
         run: |
           curl http://localhost:1235/health.html 
           echo "access health.html and returns hml 200"
+
+      - name: Try to login from runne to docker hub acc 
+        run: |
+          docker login -u vadapa01 -p Addc0l0rs
+          docker tag vijay-webui:version4 docker.io/vadapa01/vwebui:version1
+          docker push docker.io/vadapa01/vwebui:version1
+          docker logout     
