@@ -36,5 +36,5 @@ jobs:
 
       - name: Health-check
         run: |
-        curl http://localhost:1235/health.html 
-        echo "access health.html and returns hml 200"
+          curl http://localhost:1235/health.html 
+          echo "access health.html and returns hml 200"
