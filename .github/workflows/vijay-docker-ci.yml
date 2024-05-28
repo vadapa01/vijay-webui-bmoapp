@@ -52,5 +52,4 @@ jobs:
           push: true
           tags: docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/vbmoui:version2
 
-      - name: docker logout from runner fter pushing image
-        run: docker logout    
+      
