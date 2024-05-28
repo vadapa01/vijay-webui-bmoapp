@@ -18,21 +18,13 @@ jobs:
           cat /etc/os-release 
           docker version
           docker-compose version
+          sonar-scanner --version
 
       - name: using pre-designed github workflow to get github repo to runners machine
         uses: actions/checkout@v4
 
       - name: verify github code
         run: ls -a      
-
-      - name: use docker-compose
-        run: |
-          docker-compose down
-          sleep 2
-          docker-compose ps
-          docker-compose up -d
-          sleep 2
-          docker-compose ps
 
       - name: Health-check
         run: |
