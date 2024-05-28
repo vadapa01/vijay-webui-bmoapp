@@ -44,4 +44,13 @@ jobs:
         with: 
           username: ${{secrets.DOCKER_HUB_USERNAME}}
           password: ${{secrets.DOCKER_HUB_PWD}}
+          
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: . # location of Dockerfile
+          push: true
+          tags: docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/vbmoui:version2
 
+      - name: docker logout from runner fter pushing image
+        run: docker logout    
