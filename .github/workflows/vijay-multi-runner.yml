@@ -48,6 +48,7 @@ jobs:
               .
               !**/.git*
               !**/*.md
+              !**/*.properties
 
   vijay-build-job:
     runs-on: ubuntu-latest
@@ -69,7 +70,7 @@ jobs:
         run: |
           ls -a
           docker-compose up -d
-          sleep2
+          sleep 2
           docker-compose ps
 
       - name: Health check 
