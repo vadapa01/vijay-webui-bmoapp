@@ -22,7 +22,7 @@ jobs:
       - name: Checking docker version & snar version
         run: |
           docker version
-          sonar-scanner --version
+          whoami
         
   vijay-build-job:
     runs-on: macos-latest
