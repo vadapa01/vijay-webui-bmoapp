@@ -1,0 +1,35 @@
+name: vijay app containerization pipeline
+# Trigger
+on:
+  push:
+    branches:
+      - "dev"
+
+# creating multiple jobs
+jobs:
+  vijay-sast-job:
+    runs-on: windows-latest
+    steps:
+      - name: Checking docker version & snar version
+        run: |
+          docker version
+          whoami
+          
+      - name: using pre-designed github workflow to get github repo to runners machine
+        uses: actions/checkout@v4
+  
+      - name: sonarqube scan
+        uses: sonarsource/sonarqube-scan-action@v2.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+  
+        
+  vijay-build-job:
+    runs-on: macos-latest
+    needs: Vijay-sast-job 
+    steps:
+      - name: check general message
+        run:
+            echo "python version"
+            pythong -V
