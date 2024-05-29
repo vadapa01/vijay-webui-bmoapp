@@ -1,4 +1,4 @@
-name: vijay app containerization pipeline
+name: vijay app containerization pipeline - sonar scan
 # Trigger
 on:
   push:
@@ -8,7 +8,7 @@ on:
 # creating multiple jobs
 jobs:
   vijay-sast-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checking docker version & snar version
         run: |
