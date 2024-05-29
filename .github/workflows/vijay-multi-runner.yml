@@ -36,9 +36,10 @@ jobs:
           
         - name: scan code using local scanner
           run: |
+            whoami
             pwd
             sonar-scanner.bat -D"sonar.projectKey=vijay-selfhosted-local-scan" -D"sonar.sources=." -D"sonar.host.url=http://sonarqube.delvex.io:9000/" -D"sonar.token=sqp_49650fca860cf6196784fb384d956842f445021c"
-              
+
   vijay-build-job:
     runs-on: macos-latest
     needs: Vijay-sast-job 
