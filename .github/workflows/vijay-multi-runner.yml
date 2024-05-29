@@ -76,7 +76,7 @@ jobs:
       - name: Health check 
         run: |
           echo "access health.html using curl"
-          curl -f http://localhost:1234/health.html
+          curl -f http://localhost:1235/health.html
 
       - name: ecr publish
         uses: bitovi/github-actions-ecr-publish@v0.1.0
