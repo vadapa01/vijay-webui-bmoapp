@@ -7,28 +7,38 @@ on:
 
 # creating multiple jobs
 jobs:
-  vijay-sast-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checking docker version & snar version
-        run: |
-          docker version
-          whoami
+#  vijay-sast-job:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checking docker version & snar version
+#        run: |
+#          docker version
+#          whoami
           
-      - name: using pre-designed github workflow to get github repo to runners machine
-        uses: actions/checkout@v4
+#     - name: using pre-designed github workflow to get github repo to runners machine
+#        uses: actions/checkout@v4
   
-      - name: sonarqube scan
-        uses: sonarsource/sonarqube-scan-action@v2.1.0
-        with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.projectKey=Vijay-multi-Runner
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+#      - name: sonarqube scan
+#        uses: sonarsource/sonarqube-scan-action@v2.1.0
+#        with:
+#          projectBaseDir: .
+#          args: >
+#            -Dsonar.projectKey=Vijay-multi-Runner
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
+#          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   
-        
+  vijay-sast-job:
+    runs-on: self-hosted
+    steps:
+        - name: get git code
+          uses: actions/checkout@v4
+          
+        - name: scan code using local scanner
+          run: |
+            pwd
+            sonar-scanner.bat -D"sonar.projectKey=vijay-selfhosted-local-scan" -D"sonar.sources=." -D"sonar.host.url=http://sonarqube.delvex.io:9000/" -D"sonar.token=sqp_49650fca860cf6196784fb384d956842f445021c"
+              
   vijay-build-job:
     runs-on: macos-latest
     needs: Vijay-sast-job 
