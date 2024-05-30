@@ -38,7 +38,7 @@ jobs:
           run: |
             whoami
             pwd
-            sonar-scanner.bat -D"sonar.projectKey=vijay-selfhosted-local-scan" -D"sonar.sources=." -D"sonar.host.url=${{ secrets.SONAR_HOST_URL }}" -D"sonar.token=sqp_49650fca860cf6196784fb384d956842f445021c"
+            sonar-scanner.bat -D"sonar.projectKey=vijay-Wordpress-project" -D"sonar.sources=." -D"sonar.host.url=${{ secrets.SONAR_HOST_URL }}" -D"sonar.token=sqp_ad81daabb7a5b54bfac4c6d974a09cc42b07cbf0"
         
         - name: using upload artifact
           uses: actions/upload-artifact@v4
