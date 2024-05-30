@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+  vijay-webapp:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: database-2.ctoc084eswk5.us-east-1.rds.amazonaws.com
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: bmo1234567
+      WORDPRESS_DB_NAME: testdb
+    
